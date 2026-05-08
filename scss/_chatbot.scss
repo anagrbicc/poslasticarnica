@@ -1,0 +1,259 @@
+// ============================================================
+// _chatbot.scss
+// ============================================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.chatbot {
+  position: fixed;
+  bottom: $space-xl;
+  right: $space-xl;
+  z-index: 9000;
+
+  @include respond-to('sm') {
+    bottom: $space-md;
+    right: $space-md;
+  }
+
+  // --- Toggle dugme ---
+  &__toggle {
+    @include flex-center;
+    width: 60px; height: 60px;
+    border-radius: $radius-full;
+    @include gradient-bg;
+    box-shadow: $shadow-lg;
+    cursor: pointer;
+    transition: transform $transition-base;
+    position: relative;
+
+    &:hover { transform: scale(1.1); }
+
+    // Ping animacija
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: $radius-full;
+      background: $color-primary;
+      animation: pulse-ring 2s ease-out infinite;
+    }
+  }
+
+  &__toggle-icon {
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  // --- Prozor chata ---
+  &__window {
+    position: absolute;
+    bottom: calc(100% + #{$space-md});
+    right: 0;
+    width: 360px;
+    max-height: 520px;
+    background: $color-surface;
+    border-radius: $radius-lg;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.8) translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transform-origin: bottom right;
+    transition: all $transition-base;
+
+    &.open {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    @include respond-to('sm') {
+      width: calc(100vw - #{$space-xl});
+      right: 0;
+    }
+  }
+
+  // --- Header chata ---
+  &__header {
+    @include flex-row($space-sm);
+    padding: $space-md $space-lg;
+    @include gradient-bg;
+    color: #fff;
+  }
+
+  &__avatar {
+    font-size: 1.75rem;
+  }
+
+  &__header-info {
+    flex: 1;
+
+    strong {
+      display: block;
+      font-size: $font-size-base;
+      font-weight: 700;
+    }
+  }
+
+  &__status {
+    font-size: $font-size-xs;
+    opacity: 0.85;
+
+    &::before {
+      content: '●';
+      color: #4ade80;
+      margin-right: 3px;
+    }
+  }
+
+  &__close {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.8);
+    padding: $space-xs;
+    border-radius: $radius-sm;
+    transition: background $transition-fast;
+
+    &:hover { background: rgba(255,255,255,0.2); }
+  }
+
+  // --- Poruke ---
+  &__messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: $space-md;
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+    background: $color-bg;
+
+    &::-webkit-scrollbar { width: 4px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb {
+      background: $color-border;
+      border-radius: $radius-full;
+    }
+  }
+
+  &__msg {
+    @include flex-row($space-sm);
+    align-items: flex-end;
+
+    &--user {
+      flex-direction: row-reverse;
+
+      .chatbot__bubble {
+        background: $color-primary;
+        color: #fff;
+        border-bottom-right-radius: 4px;
+      }
+    }
+
+    &--bot .chatbot__bubble {
+      border-bottom-left-radius: 4px;
+    }
+  }
+
+  &__msg-avatar {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  &__bubble {
+    background: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    padding: $space-sm $space-md;
+    font-size: $font-size-sm;
+    line-height: 1.55;
+    max-width: 240px;
+    box-shadow: $shadow-sm;
+    animation: fadeInUp 0.2s ease;
+
+    &--suggestions p {
+      margin-bottom: $space-sm;
+      font-weight: 700;
+    }
+  }
+
+  // --- Suggestioni ---
+  &__suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-xs;
+  }
+
+  &__suggestion {
+    padding: 4px $space-sm;
+    border: 1.5px solid $color-primary;
+    border-radius: $radius-full;
+    font-size: $font-size-xs;
+    font-weight: 700;
+    color: $color-primary;
+    background: transparent;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:hover {
+      background: $color-primary;
+      color: #fff;
+    }
+  }
+
+  // --- Typing indikator ---
+  &__typing {
+    @include flex-row(4px);
+    padding: $space-sm $space-md;
+
+    span {
+      width: 8px; height: 8px;
+      background: $color-text-light;
+      border-radius: $radius-full;
+      animation: bounce 1.2s ease infinite;
+
+      &:nth-child(2) { animation-delay: 0.2s; }
+      &:nth-child(3) { animation-delay: 0.4s; }
+    }
+  }
+
+  // --- Input ---
+  &__input-wrap {
+    @include flex-row($space-sm);
+    padding: $space-sm $space-md;
+    border-top: 1px solid $color-border;
+    background: $color-surface;
+  }
+
+  &__input {
+    flex: 1;
+    padding: $space-sm $space-md;
+    border: 2px solid $color-border;
+    border-radius: $radius-full;
+    font-family: $font-body;
+    font-size: $font-size-sm;
+    outline: none;
+    transition: border-color $transition-fast;
+
+    &:focus { border-color: $color-primary; }
+  }
+
+  &__send {
+    @include flex-center;
+    width: 38px; height: 38px;
+    border-radius: $radius-full;
+    @include gradient-bg;
+    color: #fff;
+    font-size: 1rem;
+    transition: transform $transition-fast;
+
+    &:hover { transform: scale(1.1); }
+  }
+}
+
+@keyframes bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30%            { transform: translateY(-6px); }
+}

@@ -1,0 +1,88 @@
+// ============================================================
+// _header.scss
+// ============================================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: $header-height;
+  z-index: 1000;
+  transition: background $transition-base, box-shadow $transition-base;
+
+  &.scrolled {
+    @include glass;
+    box-shadow: $shadow-sm;
+  }
+
+  &__inner {
+    height: 100%;
+    @include flex-row;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    @include flex-row($space-sm);
+    font-family: $font-display;
+    font-size: $font-size-xl;
+    color: $color-primary;
+
+    &-icon { font-size: 1.75rem; }
+  }
+
+  &__nav-list {
+    @include flex-row($space-xl);
+
+    @include respond-to('md') {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      inset: 0;
+      background: $color-bg;
+      align-items: center;
+      justify-content: center;
+      gap: $space-xl;
+
+      &.open { display: flex; }
+    }
+  }
+
+  &__nav-link {
+    font-weight: 700;
+    color: $color-text;
+    position: relative;
+    padding-bottom: 2px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: $color-primary;
+      border-radius: $radius-full;
+      transition: width $transition-base;
+    }
+
+    &:hover::after { width: 100%; }
+    &:hover { color: $color-primary; }
+  }
+
+  &__burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: $space-sm;
+
+    @include respond-to('md') { display: flex; }
+
+    span {
+      display: block;
+      width: 24px; height: 2px;
+      background: $color-text;
+      border-radius: $radius-full;
+      transition: all $transition-base;
+    }
+  }
+}

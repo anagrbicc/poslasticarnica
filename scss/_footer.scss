@@ -1,0 +1,89 @@
+// ============================================================
+// _footer.scss
+// ============================================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.footer {
+  background: #1a1a2e;
+  color: rgba(255,255,255,0.8);
+  padding-top: $space-3xl;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: $space-2xl;
+    padding-bottom: $space-2xl;
+
+    @include respond-to('md') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__brand {
+    .header__logo-icon { font-size: 2rem; }
+  }
+
+  &__name {
+    font-family: $font-display;
+    font-size: $font-size-xl;
+    color: $color-primary;
+    display: block;
+    margin-bottom: $space-sm;
+  }
+
+  p { font-size: $font-size-sm; opacity: 0.65; }
+
+  h4 {
+    font-size: $font-size-base;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: $space-md;
+  }
+
+  &__links ul {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+
+    li a {
+      font-size: $font-size-sm;
+      opacity: 0.65;
+      transition: opacity $transition-fast;
+
+      &:hover { opacity: 1; color: $color-primary; }
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+
+  &__social-btn {
+    display: inline-flex;
+    padding: $space-xs $space-md;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: $radius-full;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    transition: all $transition-base;
+    width: fit-content;
+
+    &:hover {
+      background: $color-primary;
+      border-color: $color-primary;
+      color: #fff;
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: $space-lg 0;
+    text-align: center;
+
+    p { font-size: $font-size-sm; opacity: 0.45; }
+  }
+}

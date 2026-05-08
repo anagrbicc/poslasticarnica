@@ -1,0 +1,138 @@
+// ============================================================
+// _products.scss
+// ============================================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.products {
+  padding: $space-3xl 0;
+  background: $color-surface;
+
+  &__filter {
+    @include flex-row($space-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: $space-2xl;
+  }
+
+  &__grid {
+    @include auto-grid(280px, $space-lg);
+  }
+}
+
+// --- Filter dugmad ---
+.filter-btn {
+  padding: $space-sm $space-lg;
+  border-radius: $radius-full;
+  border: 2px solid $color-border;
+  font-weight: 700;
+  font-size: $font-size-sm;
+  color: $color-text-light;
+  background: $color-surface;
+  transition: all $transition-base;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+
+  &--active {
+    background: $color-primary;
+    border-color: $color-primary;
+    color: #fff;
+
+    &:hover { opacity: 0.9; }
+  }
+}
+
+// --- Kartice ---
+.product-card {
+  background: $color-surface;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+  transition: transform $transition-base, box-shadow $transition-base;
+  border: 1px solid $color-border;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
+  }
+
+  // Wrapper za sliku/emoji
+  &__img-wrap {
+    position: relative;
+    background: $color-card-pink;
+    padding: $space-xl 0;
+    @include flex-center;
+
+    &--pink   { background: $color-card-pink; }
+    &--orange { background: $color-card-orange; }
+    &--blue   { background: $color-card-blue; }
+    &--purple { background: $color-card-purple; }
+    &--mint   { background: $color-card-mint; }
+  }
+
+  &__emoji {
+    font-size: 5rem;
+    display: block;
+    animation: float 5s ease-in-out infinite;
+  }
+
+  &__badge {
+    position: absolute;
+    top: $space-sm; right: $space-sm;
+    padding: 2px $space-sm;
+    border-radius: $radius-full;
+    font-size: $font-size-xs;
+    font-weight: 700;
+    background: $color-accent;
+    color: #fff;
+
+    &--new  { background: #22c55e; }
+    &--sale { background: #ef4444; }
+  }
+
+  &__body {
+    padding: $space-lg;
+  }
+
+  &__name {
+    font-family: $font-display;
+    font-size: $font-size-lg;
+    margin-bottom: $space-xs;
+    color: $color-text;
+  }
+
+  &__desc {
+    font-size: $font-size-sm;
+    color: $color-text-light;
+    margin-bottom: $space-sm;
+    line-height: 1.5;
+  }
+
+  &__stars {
+    color: $color-accent;
+    font-size: $font-size-base;
+    margin-bottom: $space-md;
+    letter-spacing: 2px;
+  }
+
+  &__footer {
+    @include flex-row;
+    justify-content: space-between;
+  }
+
+  &__price {
+    font-size: $font-size-xl;
+    font-weight: 800;
+    color: $color-primary;
+  }
+
+  // Sakrij kartice koje ne odgovaraju filteru
+  &.hidden {
+    display: none;
+  }
+}

@@ -1,0 +1,142 @@
+// ============================================================
+// _base.scss – Reset i bazni stilovi
+// ============================================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-body;
+  font-size: $font-size-base;
+  color: $color-text;
+  background-color: $color-bg;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color $transition-fast;
+}
+
+ul { list-style: none; }
+
+img { max-width: 100%; display: block; }
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: $font-body;
+}
+
+.container {
+  width: 100%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $space-xl;
+
+  @include respond-to('sm') {
+    padding: 0 $space-md;
+  }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: $space-2xl;
+
+  &__tag {
+    display: inline-block;
+    background: rgba($color-primary, 0.12);
+    color: $color-primary-dark;
+    font-size: $font-size-sm;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: $space-xs $space-md;
+    border-radius: $radius-full;
+    margin-bottom: $space-sm;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: $font-size-3xl;
+    color: $color-text;
+    margin-bottom: $space-sm;
+
+    @include respond-to('md') {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  &__desc {
+    color: $color-text-light;
+    font-size: $font-size-lg;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+}
+
+// --- Dugmad ---
+.btn {
+  @include btn-base;
+
+  &--primary {
+    @include gradient-bg;
+    color: #fff;
+    box-shadow: $shadow-md;
+    @include hover-lift;
+
+    &:hover { opacity: 0.92; }
+  }
+
+  &--outline {
+    border-color: $color-primary;
+    color: $color-primary;
+    background: transparent;
+
+    &:hover {
+      background: $color-primary;
+      color: #fff;
+    }
+  }
+
+  &--small {
+    padding: $space-sm $space-lg;
+    font-size: $font-size-sm;
+  }
+
+  &--full {
+    width: 100%;
+  }
+}
+
+// --- Animacije ---
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(1);    opacity: 0.6; }
+  100% { transform: scale(1.6);  opacity: 0; }
+}
+
+.hidden { display: none !important; }

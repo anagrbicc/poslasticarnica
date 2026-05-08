@@ -1,0 +1,95 @@
+// ============================================================
+// _about.scss
+// ============================================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.about {
+  padding: $space-3xl 0;
+  background: linear-gradient(160deg, #fff0f7 0%, #f3e8ff 100%);
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: $space-3xl;
+    align-items: center;
+
+    @include respond-to('lg') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__visual {
+    @include flex-center;
+  }
+
+  &__emoji-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-md;
+
+    span {
+      @include flex-center;
+      font-size: 3rem;
+      background: rgba(255,255,255,0.7);
+      border-radius: $radius-lg;
+      padding: $space-xl;
+      box-shadow: $shadow-card;
+      transition: transform $transition-base;
+
+      &:hover { transform: scale(1.1) rotate(-5deg); }
+    }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: $font-size-3xl;
+    color: $color-text;
+    margin-bottom: $space-md;
+
+    @include respond-to('md') { font-size: $font-size-2xl; }
+  }
+
+  &__desc {
+    color: $color-text-light;
+    margin-bottom: $space-md;
+    font-size: $font-size-lg;
+    line-height: 1.7;
+
+    strong { color: $color-primary; }
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-md;
+    margin-top: $space-xl;
+
+    @include respond-to('sm') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__stat {
+    text-align: center;
+    background: $color-surface;
+    padding: $space-lg;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-sm;
+
+    strong {
+      display: block;
+      font-size: $font-size-2xl;
+      font-weight: 800;
+      color: $color-primary;
+      font-family: $font-display;
+    }
+
+    span {
+      font-size: $font-size-sm;
+      color: $color-text-light;
+      font-weight: 600;
+    }
+  }
+}
