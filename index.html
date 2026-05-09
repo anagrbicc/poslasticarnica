@@ -14,34 +14,41 @@
   <!-- ===== HEADER ===== -->
   <header class="header" id="header">
     <div class="container header__inner">
-      <a href="#" class="header__logo">
+      <a href="index.html" class="header__logo">
         <span class="header__logo-icon">🧸</span>
         <span class="header__logo-text">Mekani Prijatelji</span>
       </a>
       <nav class="header__nav" id="nav">
-        <ul class="header__nav-list">
+        <ul class="header__nav-list" id="navList">
           <li><a href="#hero"     class="header__nav-link">Početna</a></li>
           <li><a href="#products" class="header__nav-link">Igračke</a></li>
           <li><a href="#about"    class="header__nav-link">O nama</a></li>
           <li><a href="#contact"  class="header__nav-link">Kontakt</a></li>
         </ul>
       </nav>
-      <button class="header__burger" id="burger" aria-label="Meni">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="header__right">
+        <a href="korpa.html" class="cart-btn" id="cartBtn" aria-label="Korpa">
+          <span class="cart-btn__icon">🛒</span>
+          <span class="cart-btn__count" id="cartCount">0</span>
+        </a>
+        <button class="header__burger" id="burger" aria-label="Meni">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
-    <div class="hero__bg-shapes">
-      <div class="hero__shape hero__shape--1"></div>
-      <div class="hero__shape hero__shape--2"></div>
-      <div class="hero__shape hero__shape--3"></div>
+    <div class="hero__slider" id="heroSlider">
+      <div class="hero__slide hero__slide--active" style="background-image: url('images/hero1.jpg')"></div>
+      <div class="hero__slide" style="background-image: url('images/hero2.jpg')"></div>
     </div>
+    <div class="hero__overlay"></div>
+
     <div class="container hero__content">
       <div class="hero__text">
-        <span class="hero__badge">Novo u ponudi 🌟</span>
+        <span class="hero__badge">Novo u ponudi ⭐</span>
         <h1 class="hero__title">Plišane igračke<br/><em>koje se vole</em></h1>
         <p class="hero__desc">
           Svaki plišanac u našoj kolekciji napravljen je s ljubavlju i pažnjom.
@@ -49,25 +56,15 @@
         </p>
         <div class="hero__actions">
           <a href="#products" class="btn btn--primary">Pogledaj igračke</a>
-          <a href="#about"    class="btn btn--outline">Saznaj više</a>
+          <a href="#about"    class="btn btn--white">Saznaj više</a>
         </div>
       </div>
-      <div class="hero__image">
-        <div class="hero__plush-wrap">
-          <div class="hero__plush-card">
-            <span class="hero__plush-emoji">🧸</span>
-            <p>Medvjedić Teddy</p>
-          </div>
-          <div class="hero__plush-card hero__plush-card--alt">
-            <span class="hero__plush-emoji">🐰</span>
-            <p>Zečić Fluffy</p>
-          </div>
-          <div class="hero__plush-card">
-            <span class="hero__plush-emoji">🦊</span>
-            <p>Lisica Foxy</p>
-          </div>
-        </div>
-      </div>
+    </div>
+
+    <!-- Slider kontrole -->
+    <div class="hero__dots" id="heroDots">
+      <button class="hero__dot hero__dot--active" data-index="0" aria-label="Slajd 1"></button>
+      <button class="hero__dot" data-index="1" aria-label="Slajd 2"></button>
     </div>
   </section>
 
@@ -76,13 +73,13 @@
     <div class="container">
       <div class="section-header">
         <span class="section-header__tag">Naša kolekcija</span>
-        <h2 class="section-header__title">Pronađi svog mekšeg prijatelja</h2>
+        <h2 class="section-header__title">Pronađi svog mekanog prijatelja</h2>
         <p class="section-header__desc">Handmade plišanci visokog kvaliteta, bezbedni za sve uzraste</p>
       </div>
 
       <div class="products__filter">
         <button class="filter-btn filter-btn--active" data-filter="all">Sve</button>
-        <button class="filter-btn" data-filter="medvjedi">Medvjedi</button>
+        <button class="filter-btn" data-filter="medvedi">Medvedi</button>
         <button class="filter-btn" data-filter="zecevi">Zečevi</button>
         <button class="filter-btn" data-filter="zivotinje">Životinje</button>
         <button class="filter-btn" data-filter="fantazija">Fantazija</button>
@@ -90,41 +87,44 @@
 
       <div class="products__grid" id="productsGrid">
 
-        <div class="product-card" data-category="medvjedi">
-          <div class="product-card__img-wrap">
-            <span class="product-card__emoji">🧸</span>
-            <span class="product-card__badge">Bestseller</span>
+        <div class="product-card" data-category="medvedi"
+             data-id="1" data-name="Medvedić Teddy" data-price="1299" data-img="images/medvjedic-teddy.jpg">
+          <div class="product-card__img-wrap product-card__img-wrap--brown">
+            <img src="images/medvjedic-teddy.jpg" alt="Medvedić Teddy" class="product-card__img" />
+            <span class="product-card__badge">Bestseler</span>
           </div>
           <div class="product-card__body">
-            <h3 class="product-card__name">Medvjedić Teddy</h3>
-            <p class="product-card__desc">Klasičan smeđi medvjedić, 30 cm, ultra mekana tkanina</p>
+            <h3 class="product-card__name">Medvedić Teddy</h3>
+            <p class="product-card__desc">Klasičan smeđi medvedić, 30 cm, ultra mekana tkanina</p>
             <div class="product-card__stars">★★★★★</div>
             <div class="product-card__footer">
               <span class="product-card__price">1.299 RSD</span>
-              <button class="btn btn--small btn--primary">Dodaj u korpu</button>
+              <button class="btn btn--small btn--primary add-to-cart">Dodaj u korpu</button>
             </div>
           </div>
         </div>
 
-        <div class="product-card" data-category="zecevi">
+        <div class="product-card" data-category="zecevi"
+             data-id="2" data-name="Zečić Fluffy" data-price="999" data-img="images/zecic-fluffy.jpg">
           <div class="product-card__img-wrap product-card__img-wrap--pink">
-            <span class="product-card__emoji">🐰</span>
+            <img src="images/zecic-fluffy.jpg" alt="Zečić Fluffy" class="product-card__img" />
             <span class="product-card__badge product-card__badge--new">Novo</span>
           </div>
           <div class="product-card__body">
             <h3 class="product-card__name">Zečić Fluffy</h3>
-            <p class="product-card__desc">Roze zečić s dugačkim ušima, 25 cm, periv na 30°C</p>
+            <p class="product-card__desc">Bež zečić s dugačkim ušima, 25 cm, periv na 30°C</p>
             <div class="product-card__stars">★★★★★</div>
             <div class="product-card__footer">
               <span class="product-card__price">999 RSD</span>
-              <button class="btn btn--small btn--primary">Dodaj u korpu</button>
+              <button class="btn btn--small btn--primary add-to-cart">Dodaj u korpu</button>
             </div>
           </div>
         </div>
 
-        <div class="product-card" data-category="zivotinje">
+        <div class="product-card" data-category="zivotinje"
+             data-id="3" data-name="Lisica Foxy" data-price="1599" data-img="images/lisica-foxy.jpg">
           <div class="product-card__img-wrap product-card__img-wrap--orange">
-            <span class="product-card__emoji">🦊</span>
+            <img src="images/lisica-foxy.jpg" alt="Lisica Foxy" class="product-card__img" />
           </div>
           <div class="product-card__body">
             <h3 class="product-card__name">Lisica Foxy</h3>
@@ -132,14 +132,15 @@
             <div class="product-card__stars">★★★★☆</div>
             <div class="product-card__footer">
               <span class="product-card__price">1.599 RSD</span>
-              <button class="btn btn--small btn--primary">Dodaj u korpu</button>
+              <button class="btn btn--small btn--primary add-to-cart">Dodaj u korpu</button>
             </div>
           </div>
         </div>
 
-        <div class="product-card" data-category="zivotinje">
+        <div class="product-card" data-category="zivotinje"
+             data-id="4" data-name="Koala Kiki" data-price="1399" data-img="images/koala-kiki.jpg">
           <div class="product-card__img-wrap product-card__img-wrap--blue">
-            <span class="product-card__emoji">🐨</span>
+            <img src="images/koala-kiki.jpg" alt="Koala Kiki" class="product-card__img" />
           </div>
           <div class="product-card__body">
             <h3 class="product-card__name">Koala Kiki</h3>
@@ -147,38 +148,40 @@
             <div class="product-card__stars">★★★★★</div>
             <div class="product-card__footer">
               <span class="product-card__price">1.399 RSD</span>
-              <button class="btn btn--small btn--primary">Dodaj u korpu</button>
+              <button class="btn btn--small btn--primary add-to-cart">Dodaj u korpu</button>
             </div>
           </div>
         </div>
 
-        <div class="product-card" data-category="fantazija">
+        <div class="product-card" data-category="fantazija"
+             data-id="5" data-name="Jednorog Luna" data-price="1799" data-img="images/jednorog-luna.jpg">
           <div class="product-card__img-wrap product-card__img-wrap--purple">
-            <span class="product-card__emoji">🦄</span>
+            <img src="images/jednorog-luna.jpg" alt="Jednorog Luna" class="product-card__img" />
             <span class="product-card__badge product-card__badge--sale">-20%</span>
           </div>
           <div class="product-card__body">
             <h3 class="product-card__name">Jednorog Luna</h3>
-            <p class="product-card__desc">Ljubičasti jednorog s rojem, 40 cm, sjajni detalji</p>
+            <p class="product-card__desc">Beli jednorog s duginom grivom, 40 cm, sjajni detalji</p>
             <div class="product-card__stars">★★★★★</div>
             <div class="product-card__footer">
               <span class="product-card__price">1.799 RSD</span>
-              <button class="btn btn--small btn--primary">Dodaj u korpu</button>
+              <button class="btn btn--small btn--primary add-to-cart">Dodaj u korpu</button>
             </div>
           </div>
         </div>
 
-        <div class="product-card" data-category="medvjedi">
+        <div class="product-card" data-category="medvedi"
+             data-id="6" data-name="Polarni Medved" data-price="1499" data-img="images/polarni-medved.jpg">
           <div class="product-card__img-wrap product-card__img-wrap--mint">
-            <span class="product-card__emoji">🐻‍❄️</span>
+            <img src="images/polarni-medved.jpg" alt="Polarni Medved" class="product-card__img" />
           </div>
           <div class="product-card__body">
-            <h3 class="product-card__name">Polarni Medvjed</h3>
-            <p class="product-card__desc">Bijeli polarni medvjed, 32 cm, zimska kolekcija</p>
+            <h3 class="product-card__name">Polarni Medved</h3>
+            <p class="product-card__desc">Beli polarni medved, 32 cm, zimska kolekcija</p>
             <div class="product-card__stars">★★★★☆</div>
             <div class="product-card__footer">
               <span class="product-card__price">1.499 RSD</span>
-              <button class="btn btn--small btn--primary">Dodaj u korpu</button>
+              <button class="btn btn--small btn--primary add-to-cart">Dodaj u korpu</button>
             </div>
           </div>
         </div>
@@ -299,6 +302,7 @@
           <li><a href="#products">Igračke</a></li>
           <li><a href="#about">O nama</a></li>
           <li><a href="#contact">Kontakt</a></li>
+          <li><a href="korpa.html">Korpa</a></li>
         </ul>
       </div>
       <div class="footer__social">
@@ -354,13 +358,7 @@
       </div>
 
       <div class="chatbot__input-wrap">
-        <input
-          type="text"
-          class="chatbot__input"
-          id="chatbotInput"
-          placeholder="Napišite poruku..."
-          autocomplete="off"
-        />
+        <input type="text" class="chatbot__input" id="chatbotInput" placeholder="Napišite poruku..." autocomplete="off" />
         <button class="chatbot__send" id="chatbotSend" aria-label="Pošalji">➤</button>
       </div>
     </div>
