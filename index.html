@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mekani Prijatelji – Prodavnica Plišanih Igračaka</title>
+  <title>Mekani Prijatelji – Prodavnica Plisanih Igracaka</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pacifico&display=swap" rel="stylesheet" />
@@ -11,24 +11,22 @@
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
+  <!-- HEADER -->
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="index.html" class="header__logo">
-        <span class="header__logo-icon">🧸</span>
         <span class="header__logo-text">Mekani Prijatelji</span>
       </a>
       <nav class="header__nav" id="nav">
         <ul class="header__nav-list" id="navList">
-          <li><a href="#hero"     class="header__nav-link">Početna</a></li>
-          <li><a href="#products" class="header__nav-link">Igračke</a></li>
+          <li><a href="#hero"     class="header__nav-link">Pocetna</a></li>
+          <li><a href="#products" class="header__nav-link">Igracke</a></li>
           <li><a href="#about"    class="header__nav-link">O nama</a></li>
           <li><a href="#contact"  class="header__nav-link">Kontakt</a></li>
         </ul>
       </nav>
       <div class="header__right">
         <a href="korpa.html" class="cart-btn" id="cartBtn" aria-label="Korpa">
-          <span class="cart-btn__icon">🛒</span>
           <span class="cart-btn__count" id="cartCount">0</span>
         </a>
         <button class="header__burger" id="burger" aria-label="Meni">
@@ -38,7 +36,7 @@
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
+  <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero__slider" id="heroSlider">
       <div class="hero__slide hero__slide--active" style="background-image: url('images/hero1.jpg')"></div>
@@ -48,54 +46,53 @@
 
     <div class="container hero__content">
       <div class="hero__text">
-        <span class="hero__badge">Novo u ponudi ⭐</span>
-        <h1 class="hero__title">Plišane igračke<br/><em>koje se vole</em></h1>
+        <span class="hero__badge">Novo u ponudi</span>
+        <h1 class="hero__title">Plisane igracke<br/><em>koje se vole</em></h1>
         <p class="hero__desc">
-          Svaki plišanac u našoj kolekciji napravljen je s ljubavlju i pažnjom.
-          Savršen poklon za svaki uzrast – od beba do odraslih.
+          Svaki plisanac u nasoj kolekciji napravljen je s ljubavlju i paznjom.
+          Savrsen poklon za svaki uzrast – od beba do odraslih.
         </p>
         <div class="hero__actions">
-          <a href="#products" class="btn btn--primary">Pogledaj igračke</a>
-          <a href="#about"    class="btn btn--white">Saznaj više</a>
+          <a href="#products" class="btn btn--primary">Pogledaj igracke</a>
+          <a href="#about"    class="btn btn--white">Saznaj vise</a>
         </div>
       </div>
     </div>
 
-    <!-- Slider kontrole -->
     <div class="hero__dots" id="heroDots">
       <button class="hero__dot hero__dot--active" data-index="0" aria-label="Slajd 1"></button>
       <button class="hero__dot" data-index="1" aria-label="Slajd 2"></button>
     </div>
   </section>
 
-  <!-- ===== PRODUCTS ===== -->
+  <!-- IGRACKE -->
   <section class="products" id="products">
     <div class="container">
       <div class="section-header">
-        <span class="section-header__tag">Naša kolekcija</span>
-        <h2 class="section-header__title">Pronađi svog mekanog prijatelja</h2>
-        <p class="section-header__desc">Handmade plišanci visokog kvaliteta, bezbedni za sve uzraste</p>
+        <span class="section-header__tag">Nasa kolekcija</span>
+        <h2 class="section-header__title">Pronadji svog mekanog prijatelja</h2>
+        <p class="section-header__desc">Handmade plisanci visokog kvaliteta, bezbedni za sve uzraste</p>
       </div>
 
       <div class="products__filter">
         <button class="filter-btn filter-btn--active" data-filter="all">Sve</button>
         <button class="filter-btn" data-filter="medvedi">Medvedi</button>
-        <button class="filter-btn" data-filter="zecevi">Zečevi</button>
-        <button class="filter-btn" data-filter="zivotinje">Životinje</button>
+        <button class="filter-btn" data-filter="zecevi">Zecevi</button>
+        <button class="filter-btn" data-filter="zivotinje">Zivotinje</button>
         <button class="filter-btn" data-filter="fantazija">Fantazija</button>
       </div>
 
       <div class="products__grid" id="productsGrid">
 
         <div class="product-card" data-category="medvedi"
-             data-id="1" data-name="Medvedić Teddy" data-price="1299" data-img="images/medvjedic-teddy.jpg">
+             data-id="1" data-name="Medvedic Teddy" data-price="1299" data-img="images/medvjedic-teddy.jpg">
           <div class="product-card__img-wrap product-card__img-wrap--brown">
-            <img src="images/medvjedic-teddy.jpg" alt="Medvedić Teddy" class="product-card__img" />
+            <img src="images/medvjedic-teddy.jpg" alt="Medvedic Teddy" class="product-card__img" />
             <span class="product-card__badge">Bestseler</span>
           </div>
           <div class="product-card__body">
-            <h3 class="product-card__name">Medvedić Teddy</h3>
-            <p class="product-card__desc">Klasičan smeđi medvedić, 30 cm, ultra mekana tkanina</p>
+            <h3 class="product-card__name">Medvedic Teddy</h3>
+            <p class="product-card__desc">Klasican smedi medvedic, 30 cm, ultra mekana tkanina</p>
             <div class="product-card__stars">★★★★★</div>
             <div class="product-card__footer">
               <span class="product-card__price">1.299 RSD</span>
@@ -105,14 +102,14 @@
         </div>
 
         <div class="product-card" data-category="zecevi"
-             data-id="2" data-name="Zečić Fluffy" data-price="999" data-img="images/zecic-fluffy.jpg">
+             data-id="2" data-name="Zecic Fluffy" data-price="999" data-img="images/zecic-fluffy.jpg">
           <div class="product-card__img-wrap product-card__img-wrap--pink">
-            <img src="images/zecic-fluffy.jpg" alt="Zečić Fluffy" class="product-card__img" />
+            <img src="images/zecic-fluffy.jpg" alt="Zecic Fluffy" class="product-card__img" />
             <span class="product-card__badge product-card__badge--new">Novo</span>
           </div>
           <div class="product-card__body">
-            <h3 class="product-card__name">Zečić Fluffy</h3>
-            <p class="product-card__desc">Bež zečić s dugačkim ušima, 25 cm, periv na 30°C</p>
+            <h3 class="product-card__name">Zecic Fluffy</h3>
+            <p class="product-card__desc">Bez zecic s dugackim usima, 25 cm, periv na 30°C</p>
             <div class="product-card__stars">★★★★★</div>
             <div class="product-card__footer">
               <span class="product-card__price">999 RSD</span>
@@ -128,7 +125,7 @@
           </div>
           <div class="product-card__body">
             <h3 class="product-card__name">Lisica Foxy</h3>
-            <p class="product-card__desc">Narandžasta lisica s belim repom, 35 cm, premium kvalitet</p>
+            <p class="product-card__desc">Narandzasta lisica s belim repom, 35 cm, premium kvalitet</p>
             <div class="product-card__stars">★★★★☆</div>
             <div class="product-card__footer">
               <span class="product-card__price">1.599 RSD</span>
@@ -144,7 +141,7 @@
           </div>
           <div class="product-card__body">
             <h3 class="product-card__name">Koala Kiki</h3>
-            <p class="product-card__desc">Sivi koala s velikim ušima, 28 cm, ekološki pamuk</p>
+            <p class="product-card__desc">Sivi koala s velikim usima, 28 cm, ekoloski pamuk</p>
             <div class="product-card__stars">★★★★★</div>
             <div class="product-card__footer">
               <span class="product-card__price">1.399 RSD</span>
@@ -190,46 +187,37 @@
     </div>
   </section>
 
-  <!-- ===== ABOUT ===== -->
+  <!-- O NAMA -->
   <section class="about" id="about">
     <div class="container about__inner">
-      <div class="about__visual">
-        <div class="about__emoji-grid">
-          <span>🧸</span><span>🐰</span>
-          <span>🦊</span><span>🐨</span>
-          <span>🦄</span><span>🐻‍❄️</span>
+      <span class="section-header__tag">O nama</span>
+      <h2 class="about__title">Pravimo radost od 2015. godine</h2>
+      <p class="about__desc">
+        <strong>Mekani Prijatelji</strong> je porodicna firma iz Beograda koja pravi plisane igracke
+        sa jednom misijom – da svako dete (i odrasli) ima svog posebnog plisanog prijatelja.
+      </p>
+      <p class="about__desc">
+        Sve igracke prolaze stroge bezbednosne testove i nose CE sertifikat. Koristimo
+        samo hipoalergene materijale, bezbedne za bebe od 0+.
+      </p>
+      <div class="about__stats">
+        <div class="about__stat">
+          <strong>10.000+</strong>
+          <span>Srecnih kupaca</span>
         </div>
-      </div>
-      <div class="about__text">
-        <span class="section-header__tag">O nama</span>
-        <h2 class="about__title">Pravimo radost od 2015. godine</h2>
-        <p class="about__desc">
-          <strong>Mekani Prijatelji</strong> je porodična firma iz Beograda koja pravi plišane igračke
-          sa jednom misijom – da svako dete (i odrasli) ima svog posebnog plišanog prijatelja.
-        </p>
-        <p class="about__desc">
-          Sve igračke prolaze stroge bezbednosne testove i nose CE sertifikat. Koristimo
-          samo hipoalergene materijale, bezbedne za bebe od 0+.
-        </p>
-        <div class="about__stats">
-          <div class="about__stat">
-            <strong>10.000+</strong>
-            <span>Srećnih kupaca</span>
-          </div>
-          <div class="about__stat">
-            <strong>50+</strong>
-            <span>Modela igračaka</span>
-          </div>
-          <div class="about__stat">
-            <strong>CE</strong>
-            <span>Sertifikovano</span>
-          </div>
+        <div class="about__stat">
+          <strong>50+</strong>
+          <span>Modela igracaka</span>
+        </div>
+        <div class="about__stat">
+          <strong>CE</strong>
+          <span>Sertifikovano</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CONTACT ===== -->
+  <!-- KONTAKT -->
   <section class="contact" id="contact">
     <div class="container">
       <div class="section-header">
@@ -239,38 +227,26 @@
       <div class="contact__grid">
         <div class="contact__info">
           <div class="contact__info-item">
-            <span class="contact__icon">📍</span>
-            <div>
-              <strong>Adresa</strong>
-              <p>Knez Mihailova 14, Beograd</p>
-            </div>
+            <strong>Adresa</strong>
+            <p>Knez Mihailova 14, Beograd</p>
           </div>
           <div class="contact__info-item">
-            <span class="contact__icon">📞</span>
-            <div>
-              <strong>Telefon</strong>
-              <p>+381 11 123 4567</p>
-            </div>
+            <strong>Telefon</strong>
+            <p>+381 11 123 4567</p>
           </div>
           <div class="contact__info-item">
-            <span class="contact__icon">✉️</span>
-            <div>
-              <strong>Email</strong>
-              <p>info@mekaniprijatelji.rs</p>
-            </div>
+            <strong>Email</strong>
+            <p>info@mekaniprijatelji.rs</p>
           </div>
           <div class="contact__info-item">
-            <span class="contact__icon">🕐</span>
-            <div>
-              <strong>Radno vreme</strong>
-              <p>Pon – Pet: 09:00 – 20:00<br/>Sub: 10:00 – 16:00</p>
-            </div>
+            <strong>Radno vreme</strong>
+            <p>Pon – Pet: 09:00 – 20:00<br/>Sub: 10:00 – 16:00</p>
           </div>
         </div>
         <form class="contact__form" id="contactForm">
           <div class="form-group">
             <label for="name">Ime i prezime</label>
-            <input type="text" id="name" name="name" placeholder="Vaše ime..." required />
+            <input type="text" id="name" name="name" placeholder="Vase ime..." required />
           </div>
           <div class="form-group">
             <label for="email">Email adresa</label>
@@ -278,28 +254,27 @@
           </div>
           <div class="form-group">
             <label for="message">Poruka</label>
-            <textarea id="message" name="message" rows="4" placeholder="Napišite poruku..." required></textarea>
+            <textarea id="message" name="message" rows="4" placeholder="Napisite poruku..." required></textarea>
           </div>
-          <button type="submit" class="btn btn--primary btn--full">Pošalji poruku</button>
+          <button type="submit" class="btn btn--primary btn--full">Posalji poruku</button>
           <p class="contact__form-msg" id="formMsg"></p>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <span class="header__logo-icon">🧸</span>
         <span class="footer__name">Mekani Prijatelji</span>
-        <p>Pravimo radost, jednu igračku po jednu.</p>
+        <p>Pravimo radost, jednu igracku po jednu.</p>
       </div>
       <div class="footer__links">
         <h4>Navigacija</h4>
         <ul>
-          <li><a href="#hero">Početna</a></li>
-          <li><a href="#products">Igračke</a></li>
+          <li><a href="#hero">Pocetna</a></li>
+          <li><a href="#products">Igracke</a></li>
           <li><a href="#about">O nama</a></li>
           <li><a href="#contact">Kontakt</a></li>
           <li><a href="korpa.html">Korpa</a></li>
@@ -315,20 +290,19 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <p>© 2025 Mekani Prijatelji. Sva prava zadržana.</p>
+      <p>© 2025 Mekani Prijatelji. Sva prava zadrzana.</p>
     </div>
   </footer>
 
-  <!-- ===== CHATBOT ===== -->
+  <!-- CHATBOT -->
   <div class="chatbot" id="chatbot">
     <button class="chatbot__toggle" id="chatbotToggle" aria-label="Otvori chat">
-      <span class="chatbot__toggle-icon chatbot__toggle-icon--open">💬</span>
+      <span class="chatbot__toggle-icon chatbot__toggle-icon--open">?</span>
       <span class="chatbot__toggle-icon chatbot__toggle-icon--close hidden">✕</span>
     </button>
 
     <div class="chatbot__window" id="chatbotWindow" aria-hidden="true">
       <div class="chatbot__header">
-        <div class="chatbot__avatar">🧸</div>
         <div class="chatbot__header-info">
           <strong>Teddy Asistent</strong>
           <span class="chatbot__status">Online</span>
@@ -338,19 +312,17 @@
 
       <div class="chatbot__messages" id="chatbotMessages">
         <div class="chatbot__msg chatbot__msg--bot">
-          <span class="chatbot__msg-avatar">🧸</span>
           <div class="chatbot__bubble">
-            Zdravo! Ja sam Teddy, vaš virtualni asistent. Kako vam mogu pomoći danas? 🐾
+            Zdravo! Ja sam Teddy, vas virtuelni asistent. Kako vam mogu pomoci danas?
           </div>
         </div>
         <div class="chatbot__msg chatbot__msg--bot">
-          <span class="chatbot__msg-avatar">🧸</span>
           <div class="chatbot__bubble chatbot__bubble--suggestions">
-            <p>Možete me pitati o:</p>
+            <p>Mozete me pitati o:</p>
             <div class="chatbot__suggestions">
-              <button class="chatbot__suggestion" data-msg="Koje igračke imate?">Koje igračke imate?</button>
+              <button class="chatbot__suggestion" data-msg="Koje igracke imate?">Koje igracke imate?</button>
               <button class="chatbot__suggestion" data-msg="Koje su cene?">Koje su cene?</button>
-              <button class="chatbot__suggestion" data-msg="Da li šaljete poštom?">Dostava</button>
+              <button class="chatbot__suggestion" data-msg="Da li saljete postom?">Dostava</button>
               <button class="chatbot__suggestion" data-msg="Radno vreme">Radno vreme</button>
             </div>
           </div>
@@ -358,8 +330,8 @@
       </div>
 
       <div class="chatbot__input-wrap">
-        <input type="text" class="chatbot__input" id="chatbotInput" placeholder="Napišite poruku..." autocomplete="off" />
-        <button class="chatbot__send" id="chatbotSend" aria-label="Pošalji">➤</button>
+        <input type="text" class="chatbot__input" id="chatbotInput" placeholder="Napisite poruku..." autocomplete="off" />
+        <button class="chatbot__send" id="chatbotSend" aria-label="Posalji">→</button>
       </div>
     </div>
   </div>

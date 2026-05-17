@@ -1,7 +1,3 @@
-// ============================================================
-// _contact.scss
-// ============================================================
-
 @use 'variables' as *;
 @use 'mixins' as *;
 
@@ -14,73 +10,33 @@
     grid-template-columns: 1fr 1.4fr;
     gap: $space-2xl;
     margin-top: $space-2xl;
-
-    @include respond-to('lg') {
-      grid-template-columns: 1fr;
-    }
+    @include respond-to('lg') { grid-template-columns: 1fr; }
   }
 
-  &__info {
-    display: flex;
-    flex-direction: column;
-    gap: $space-lg;
-  }
+  &__info { display: flex; flex-direction: column; gap: $space-lg; }
 
   &__info-item {
-    @include flex-row($space-md);
     background: $color-bg;
     border-radius: $radius-lg;
-    padding: $space-lg;
+    padding: 1.25rem $space-lg;
     border: 1px solid $color-border;
     transition: box-shadow $transition-base;
-
     &:hover { box-shadow: $shadow-md; }
-
-    strong {
-      display: block;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-
-    p {
-      color: $color-text-light;
-      font-size: $font-size-sm;
-    }
+    strong { display: block; font-weight: 700; margin-bottom: 2px; }
+    p { color: $color-text-light; font-size: $font-size-sm; }
   }
 
-  &__icon {
-    font-size: 1.75rem;
-    flex-shrink: 0;
-  }
+  &__form { display: flex; flex-direction: column; gap: $space-md; }
 
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: $space-md;
-  }
-
-  &__form-msg {
-    text-align: center;
-    font-weight: 700;
-    color: #22c55e;
-    min-height: 1.5rem;
-  }
+  &__form-msg { text-align: center; font-weight: 700; color: #22c55e; min-height: 1.5rem; }
 }
 
-// --- Form elementi ---
 .form-group {
-  display: flex;
-  flex-direction: column;
-  gap: $space-xs;
+  display: flex; flex-direction: column; gap: $space-xs;
 
-  label {
-    font-weight: 700;
-    font-size: $font-size-sm;
-    color: $color-text;
-  }
+  label { font-weight: 700; font-size: $font-size-sm; color: $color-text; }
 
-  input,
-  textarea {
+  input, textarea {
     padding: $space-md;
     border: 2px solid $color-border;
     border-radius: $radius-md;
@@ -90,13 +46,7 @@
     background: $color-bg;
     transition: border-color $transition-fast, box-shadow $transition-fast;
     resize: vertical;
-
-    &::placeholder { color: lighten($color-text-light, 15%); }
-
-    &:focus {
-      outline: none;
-      border-color: $color-primary;
-      box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
-    }
+    &::placeholder { color: #b0bec5; }
+    &:focus { outline: none; border-color: $color-primary; box-shadow: 0 0 0 3px rgba($color-primary, 0.15); }
   }
 }

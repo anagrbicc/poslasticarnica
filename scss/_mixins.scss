@@ -1,10 +1,5 @@
-// ============================================================
-// _mixins.scss – Višekratni SASS mixini
-// ============================================================
-
 @use 'variables' as *;
 
-// --- Responsive breakpointi ---
 @mixin respond-to($bp) {
   @if $bp == 'sm'  { @media (max-width: #{$bp-sm})  { @content; } }
   @if $bp == 'md'  { @media (max-width: #{$bp-md})  { @content; } }
@@ -12,14 +7,12 @@
   @if $bp == 'xl'  { @media (max-width: #{$bp-xl})  { @content; } }
 }
 
-// --- Flexbox centrisanje ---
 @mixin flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-// --- Flex red ---
 @mixin flex-row($gap: $space-md) {
   display: flex;
   flex-direction: row;
@@ -27,14 +20,12 @@
   gap: $gap;
 }
 
-// --- Grid sa auto-fill kolonama ---
 @mixin auto-grid($min: 280px, $gap: $space-lg) {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
   gap: $gap;
 }
 
-// --- Dugme osnova ---
 @mixin btn-base {
   display: inline-flex;
   align-items: center;
@@ -52,23 +43,11 @@
   white-space: nowrap;
 }
 
-// --- Hover podizanje ---
 @mixin hover-lift($y: -4px, $shadow: $shadow-lg) {
   transition: transform $transition-base, box-shadow $transition-base;
-  &:hover {
-    transform: translateY($y);
-    box-shadow: $shadow;
-  }
+  &:hover { transform: translateY($y); box-shadow: $shadow; }
 }
 
-// --- Truncate tekst ---
-@mixin truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-// --- Glassmorphism efekt ---
 @mixin glass {
   background: rgba(255,255,255,0.65);
   backdrop-filter: blur(12px);
@@ -76,18 +55,6 @@
   border: 1px solid rgba(255,255,255,0.5);
 }
 
-// --- Gradient pozadina ---
 @mixin gradient-bg($from: $color-primary, $to: $color-secondary, $deg: 135deg) {
   background: linear-gradient($deg, $from, $to);
-}
-
-// --- Aspect ratio ---
-@mixin aspect-ratio($w: 1, $h: 1) {
-  aspect-ratio: #{$w} / #{$h};
-}
-
-// --- Animacija pojavljivanja ---
-@mixin fade-in-up($delay: 0s) {
-  animation: fadeInUp 0.6s ease both;
-  animation-delay: $delay;
 }

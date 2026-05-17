@@ -1,17 +1,6 @@
-// ============================================================
-// main.scss – Glavni SASS fajl, importuje sve partiale
-// ============================================================
-
-// 1. Varijable (moraju biti prve)
 @use 'variables' as *;
-
-// 2. Mixini
 @use 'mixins' as *;
-
-// 3. Bazni stilovi i reset
 @use 'base';
-
-// 4. Komponente
 @use 'header';
 @use 'hero';
 @use 'products';
@@ -19,3 +8,4 @@
 @use 'contact';
 @use 'chatbot';
 @use 'footer';
+@use 'cart';

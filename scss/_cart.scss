@@ -1,0 +1,170 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+/* Dugme korpe u headeru */
+.header__right { @include flex-row(0.75rem); }
+
+.cart-btn {
+  position: relative;
+  @include flex-center;
+  width: 44px; height: 44px;
+  border-radius: $radius-full;
+  background: rgba($color-primary, 0.1);
+  text-decoration: none;
+  transition: background 0.2s ease;
+  &:hover { background: rgba($color-primary, 0.2); }
+}
+
+.cart-btn__count {
+  position: absolute; top: -2px; right: -2px;
+  background: $color-primary; color: #fff;
+  font-size: 0.65rem; font-weight: 800;
+  width: 18px; height: 18px;
+  border-radius: $radius-full;
+  @include flex-center;
+  opacity: 0; transform: scale(0.5); transition: all 0.2s ease;
+  &.has-items { opacity: 1; transform: scale(1); }
+}
+
+/* Stranica korpe */
+.cart-page { padding: 100px 0 5rem; min-height: 80vh; }
+
+.breadcrumb {
+  display: flex; align-items: center; gap: $space-sm;
+  font-size: $font-size-sm; color: $color-text-light; margin-bottom: $space-xl;
+  a { color: $color-primary; &:hover { text-decoration: underline; } }
+}
+
+/* Koraci */
+.checkout-steps { display: flex; align-items: center; margin-bottom: $space-2xl; }
+.checkout-step { display: flex; align-items: center; gap: $space-sm; }
+.checkout-step__num {
+  width: 34px; height: 34px; border-radius: $radius-full;
+  background: $color-border; color: #aaa;
+  @include flex-center;
+  font-weight: 800; font-size: $font-size-sm; transition: all $transition-base;
+}
+.checkout-step__label { font-weight: 700; font-size: $font-size-sm; color: #aaa; transition: color $transition-base; }
+.checkout-step--active .checkout-step__num  { background: $color-primary; color: #fff; }
+.checkout-step--active .checkout-step__label { color: $color-primary; }
+.checkout-step--done   .checkout-step__num  { background: #22c55e; color: #fff; }
+.checkout-step--done   .checkout-step__label { color: #22c55e; }
+.checkout-steps__line { flex: 1; height: 2px; background: $color-border; margin: 0 0.75rem; }
+
+/* Prazna korpa */
+.cart-empty {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; text-align: center; padding: $space-3xl $space-xl; gap: $space-md;
+  h2 { font-family: $font-display; font-size: 1.75rem; }
+  p  { color: $color-text-light; }
+}
+
+/* Layout */
+.cart-layout { display: grid; grid-template-columns: 1fr 380px; gap: $space-xl; align-items: start; }
+@media (max-width: 1024px) { .cart-layout { grid-template-columns: 1fr; } }
+
+/* Artikli */
+.cart-items { display: flex; flex-direction: column; gap: $space-md; }
+.cart-item {
+  display: flex; align-items: center; gap: $space-md;
+  background: $color-surface; border: 1px solid $color-border;
+  border-radius: $radius-lg; padding: $space-md;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  @include respond-to('sm') { flex-wrap: wrap; }
+}
+.cart-item__img-wrap {
+  width: 80px; height: 80px; border-radius: $radius-md;
+  overflow: hidden; flex-shrink: 0;
+  background: $color-card-pink; @include flex-center;
+}
+.cart-item__img { width: 100%; height: 100%; object-fit: cover; }
+.cart-item__img-fallback { font-size: $font-size-xs; color: #aaa; }
+.cart-item__info { flex: 1; }
+.cart-item__name { font-weight: 700; font-size: $font-size-base; margin-bottom: 0.2rem; }
+.cart-item__unit-price { font-size: 0.8rem; color: $color-text-light; }
+.cart-item__qty { display: flex; align-items: center; gap: $space-sm; }
+.qty-btn {
+  width: 30px; height: 30px; border-radius: $radius-full;
+  border: 2px solid $color-border; font-size: $font-size-base; font-weight: 700;
+  @include flex-center;
+  cursor: pointer; transition: all $transition-fast; background: $color-surface;
+  &:hover { border-color: $color-primary; color: $color-primary; }
+}
+.qty-val { font-weight: 800; min-width: 24px; text-align: center; }
+.cart-item__subtotal { font-weight: 800; color: $color-primary; min-width: 90px; text-align: right; }
+.cart-item__remove {
+  color: #aaa; padding: $space-xs; border-radius: $radius-sm; transition: color $transition-fast;
+  &:hover { color: #ef4444; }
+}
+
+/* Sažetak narudžbine */
+.cart-summary {
+  background: $color-surface; border: 1px solid $color-border;
+  border-radius: $radius-lg; padding: $space-lg;
+  box-shadow: 0 4px 20px rgba($color-primary, 0.08);
+  position: sticky; top: 90px;
+  &__title { font-family: $font-display; font-size: $font-size-xl; margin-bottom: 1.25rem; color: $color-text; }
+  &__rows { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: $space-md; }
+  &__row { display: flex; justify-content: space-between; font-size: 0.9rem; }
+  &__row--total { font-weight: 800; font-size: 1.1rem; color: $color-primary; }
+  &__divider { height: 1px; background: $color-border; margin: 0.75rem 0; }
+  &__promo { background: rgba($color-primary, 0.07); border-radius: $radius-md; padding: 0.75rem; margin-bottom: $space-md; }
+  &__promo-tip { font-size: 0.8rem; color: $color-primary-dark; font-weight: 700; }
+  &__back { display: block; text-align: center; margin-top: 0.75rem; font-size: $font-size-sm; color: $color-text-light; &:hover { color: $color-primary; } }
+}
+.green { color: #22c55e; font-weight: 700; }
+
+/* Checkout forma */
+.checkout-form {
+  background: $color-surface; border: 1px solid $color-border;
+  border-radius: $radius-lg; padding: $space-xl;
+  &__title { font-family: $font-display; font-size: $font-size-xl; margin-bottom: $space-lg; color: $color-text; }
+  &__actions { display: flex; gap: $space-md; margin-top: $space-lg; flex-wrap: wrap; }
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: $space-md; }
+@media (max-width: 576px) { .form-row { grid-template-columns: 1fr; } }
+
+/* Načini plaćanja */
+.payment-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: $space-lg; }
+.payment-option {
+  cursor: pointer;
+  input[type="radio"] { display: none; }
+  &__card {
+    display: flex; align-items: center; gap: $space-md;
+    border: 2px solid $color-border; border-radius: $radius-md; padding: $space-md;
+    transition: border-color 0.2s ease;
+  }
+  input:checked + &__card { border-color: $color-primary; background: rgba($color-primary, 0.04); }
+  strong { display: block; font-weight: 700; }
+  p { font-size: 0.8rem; color: $color-text-light; }
+}
+.card-details {
+  background: $color-bg; border: 1px solid $color-border;
+  border-radius: $radius-md; padding: $space-md; margin-bottom: $space-md;
+}
+
+/* Pregled artikala u checkoutu */
+.checkout-item {
+  display: flex; justify-content: space-between;
+  font-size: $font-size-sm; padding: 0.4rem 0;
+  border-bottom: 1px solid #f9f0f5;
+  &:last-child { border-bottom: none; }
+}
+.checkout-item-list { margin-bottom: $space-md; }
+
+/* Uspešna narudžbina */
+.order-success {
+  text-align: center; max-width: 580px; margin: 0 auto; padding: $space-2xl $space-xl;
+  &__title { font-family: $font-display; font-size: $font-size-3xl; color: $color-text; margin-bottom: $space-md; }
+  &__desc { color: $color-text-light; font-size: 1.05rem; line-height: 1.7; margin-bottom: $space-xl; }
+  &__info {
+    background: $color-surface; border: 1px solid $color-border;
+    border-radius: $radius-lg; padding: $space-lg; margin-bottom: $space-xl; text-align: left;
+  }
+  &__row {
+    display: flex; justify-content: space-between;
+    padding: 0.6rem 0; border-bottom: 1px solid #f9f0f5; font-size: 0.9rem;
+    &:last-child { border-bottom: none; }
+  }
+  &__actions { display: flex; gap: $space-md; justify-content: center; flex-wrap: wrap; }
+}

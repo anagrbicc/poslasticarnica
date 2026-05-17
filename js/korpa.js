@@ -37,7 +37,7 @@ function renderCart() {
       <div class="cart-item__img-wrap">
         <img src="${item.img}" alt="${item.name}" class="cart-item__img"
              onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
-        <span class="cart-item__img-fallback" style="display:none">🧸</span>
+        <span class="cart-item__img-fallback" style="display:none">img</span>
       </div>
       <div class="cart-item__info">
         <h4 class="cart-item__name">${item.name}</h4>
