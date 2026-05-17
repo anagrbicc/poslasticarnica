@@ -1,7 +1,4 @@
-/**
- * chatbot.js – Teddy asistent za Mekani Prijatelji
- * Jednostavan rule-based chatbot koji odgovara na pitanja o prodavnici.
- */
+
 
 (function () {
   "use strict";
@@ -11,17 +8,17 @@
     {
       patterns: ["igračke", "ponuda", "šta imate", "koje igračke", "kolekcija", "proizvodi"],
       answer:
-        "Naša kolekcija uključuje:\n🧸 Medvjediće (Teddy, Polarni)\n🐰 Zečiće (Fluffy)\n🦊 Lisice (Foxy)\n🐨 Koale (Kiki)\n🦄 Jednoroze (Luna)\n\nSvaki komad je ručno rađen i CE sertifikovan! 💕",
+        "Naša kolekcija uključuje:\n🧸 Medvediće (Teddy, Polarni)\n🐰 Zečiće (Fluffy)\n🦊 Lisice (Foxy)\n🐨 Koale (Kiki)\n🦄 Jednoroze (Luna)\n\nSvaki komad je ručno rađen i CE sertifikovan! 💕",
     },
     {
       patterns: ["cena", "cijena", "koliko košta", "koliko kosta", "cene", "cijene", "price"],
       answer:
-        "Naše cijene su:\n• Zečić Fluffy – 999 RSD\n• Medvjedić Teddy – 1.299 RSD\n• Koala Kiki – 1.399 RSD\n• Polarni Medvjed – 1.499 RSD\n• Lisica Foxy – 1.599 RSD\n• Jednorog Luna – 1.799 RSD (aktualno -20%! 🎉)",
+        "Naše cene su:\n• Zečić Fluffy – 999 RSD\n• Medvedić Teddy – 1.299 RSD\n• Koala Kiki – 1.399 RSD\n• Polarni Medved – 1.499 RSD\n• Lisica Foxy – 1.599 RSD\n• Jednorog Luna – 1.799 RSD (aktualno -20%! 🎉)",
     },
     {
       patterns: ["dostava", "slanje", "pošta", "posta", "isporuka", "shipping", "šaljete", "saljete"],
       answer:
-        "📦 Dostavljamo po cijeloj Srbiji i regionu!\n\n• Srbija: 350 RSD (besplatno za narudžbe 3.000+ RSD)\n• Region (BIH, CG, MK): 700 RSD\n• Rok isporuke: 1–3 radna dana\n\nPratite paket putem tracking koda koji dobijate emailom! 📬",
+        "📦 Dostavljamo po celoj Srbiji i regionu!\n\n• Srbija: 350 RSD (besplatno za narudžbe 3.000+ RSD)\n• Region (BIH, CG, MK): 700 RSD\n• Rok isporuke: 1–3 radna dana\n\nPratite paket putem tracking koda koji dobijate emailom! 📬",
     },
     {
       patterns: ["radno vreme", "radno vrijeme", "radi", "otvoreno", "kada", "sati", "hours"],
@@ -31,17 +28,17 @@
     {
       patterns: ["kontakt", "telefon", "email", "adresa", "gdje se nalazite", "gde se nalazite", "lokacija"],
       answer:
-        "📍 Knez Mihailova 14, Beograd\n📞 +381 11 123 4567\n✉️ info@mekaniprijatelji.rs\n\nMožete nas posjetiti lično ili naručiti online! 😊",
+        "📍 Knez Mihailova 14, Beograd\n📞 +381 11 123 4567\n✉️ info@mekaniprijatelji.rs\n\nMožete nas posetiti lično ili naručiti online! 😊",
     },
     {
       patterns: ["povrat", "reklamacija", "zamjena", "zamena", "vrácení", "vracanje", "nije ispravno"],
       answer:
-        "✅ Garantujemo 30 dana za povrat i zamjenu!\n\nAko ste nezadovoljni iz bilo kojeg razloga, kontaktirajte nas i riješićemo problem u roku od 24h. Vaše zadovoljstvo je naš prioritet! 💖",
+        "✅ Garantujemo 30 dana za povrat i zamenu!\n\nAko ste nezadovoljni iz bilo kojeg razloga, kontaktirajte nas i riešićemo problem u roku od 24h. Vaše zadovoljstvo je naš prioritet! 💖",
     },
     {
       patterns: ["uzrast", "dob", "beba", "dijete", "dete", "koliko godina", "bezbedno", "sigurno", "CE"],
       answer:
-        "👶 Sve naše igračke su bezbedne za djecu!\n\n• Hipoalergeni materijali\n• CE sertifikat (EU standard)\n• Bez malih dijelova za djecu 0–3 god.\n• Perivo na 30°C u veš mašini\n\nIdealne od 0+ godina! ✨",
+        "👶 Sve naše igračke su bezbedne za decu!\n\n• Hipoalergeni materijali\n• CE sertifikat (EU standard)\n• Bez malih delova za decu 0–3 god.\n• Perivo na 30°C u veš mašini\n\nIdealne od 0+ godina! ✨",
     },
     {
       patterns: ["popust", "akcija", "sniženje", "kupon", "promo", "sale", "discount"],
@@ -60,12 +57,12 @@
     {
       patterns: ["poklon", "gift", "pokloni", "za poklon", "rođendan", "rodjendan", "birthday"],
       answer:
-        "🎁 Naše igračke su savršen poklon!\n\nNudimo i besplatno pakovanje na poklon (lijepa kutija + mašna) za sve narudžbe. Samo napomenite pri narudžbi! 🎀\n\nNajpopularniji pokloni su:\n1. Medvjedić Teddy 🧸\n2. Jednorog Luna 🦄\n3. Zečić Fluffy 🐰",
+        "🎁 Naše igračke su savršen poklon!\n\nNudimo i besplatno pakovanje na poklon (lepa kutija + mašna) za sve narudžbe. Samo napomenite pri narudžbi! 🎀\n\nNajpopularniji pokloni su:\n1. Medvedić Teddy 🧸\n2. Jednorog Luna 🦄\n3. Zečić Fluffy 🐰",
     },
   ];
 
   const defaultAnswer =
-    "Hmm, nisam siguran šta mislite 🤔\n\nMožete me pitati o:\n• Igračkama i cijenama\n• Dostavi\n• Radnom vremenu\n• Povratima\n• Poklon pakovanju\n\nIli me nazovite: +381 11 123 4567 😊";
+    "Hmm, nisam siguran šta mislite 🤔\n\nMožete me pitati o:\n• Igračkama i cenama\n• Dostavi\n• Radnom vremenu\n• Povratima\n• Poklon pakovanju\n\nIli me nazovite: +381 11 123 4567 😊";
 
   // ── DOM elementi ─────────────────────────────────────────────────────────────
   const toggle      = document.getElementById("chatbotToggle");
