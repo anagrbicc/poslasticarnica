@@ -9,7 +9,6 @@
   @if $bp == 'sm'  { @media (max-width: #{$bp-sm})  { @content; } }
   @if $bp == 'md'  { @media (max-width: #{$bp-md})  { @content; } }
   @if $bp == 'lg'  { @media (max-width: #{$bp-lg})  { @content; } }
-  @if $bp == 'xl'  { @media (max-width: #{$bp-xl})  { @content; } }
 }
 
 // --- Flexbox centrisanje ---
@@ -61,13 +60,6 @@
   }
 }
 
-// --- Truncate tekst ---
-@mixin truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 // --- Glassmorphism efekt ---
 @mixin glass {
   background: rgba(255,255,255,0.65);
@@ -79,11 +71,6 @@
 // --- Gradient pozadina ---
 @mixin gradient-bg($from: $color-primary, $to: $color-secondary, $deg: 135deg) {
   background: linear-gradient($deg, $from, $to);
-}
-
-// --- Aspect ratio ---
-@mixin aspect-ratio($w: 1, $h: 1) {
-  aspect-ratio: #{$w} / #{$h};
 }
 
 // --- Animacija pojavljivanja ---

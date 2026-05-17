@@ -75,12 +75,6 @@
     &--mint   { background: $color-card-mint; }
   }
 
-  &__emoji {
-    font-size: 5rem;
-    display: block;
-    animation: float 5s ease-in-out infinite;
-  }
-
   &__badge {
     position: absolute;
     top: $space-sm; right: $space-sm;

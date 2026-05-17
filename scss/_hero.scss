@@ -12,41 +12,6 @@
   padding: calc(#{$header-height} + #{$space-2xl}) 0 $space-3xl;
   overflow: hidden;
 
-  // Ukrasne forme u pozadini
-  &__bg-shapes {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-
-  &__shape {
-    position: absolute;
-    border-radius: $radius-full;
-    opacity: 0.18;
-
-    &--1 {
-      width: 500px; height: 500px;
-      background: $color-primary;
-      top: -100px; right: -100px;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    &--2 {
-      width: 300px; height: 300px;
-      background: $color-secondary;
-      bottom: 50px; left: -80px;
-      animation: float 8s ease-in-out infinite reverse;
-    }
-
-    &--3 {
-      width: 180px; height: 180px;
-      background: $color-accent;
-      top: 50%; left: 45%;
-      animation: float 5s ease-in-out infinite 1s;
-    }
-  }
-
   &__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -108,44 +73,4 @@
   }
 
   // Kartice igračaka
-  &__image { @include fade-in-up(0.3s); }
-
-  &__plush-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: $space-md;
-    align-items: flex-end;
-
-    @include respond-to('lg') {
-      flex-direction: row;
-      justify-content: center;
-    }
-  }
-
-  &__plush-card {
-    @include glass;
-    border-radius: $radius-lg;
-    padding: $space-lg;
-    text-align: center;
-    min-width: 160px;
-    @include hover-lift;
-
-    &--alt {
-      margin-left: -$space-xl;
-      @include respond-to('lg') { margin-left: 0; margin-top: -$space-xl; }
-    }
-
-    p {
-      font-weight: 700;
-      font-size: $font-size-sm;
-      margin-top: $space-sm;
-      color: $color-text;
-    }
-  }
-
-  &__plush-emoji {
-    font-size: 3.5rem;
-    display: block;
-    animation: float 4s ease-in-out infinite;
-  }
 }
